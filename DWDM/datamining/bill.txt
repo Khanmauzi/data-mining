@@ -1,0 +1,7 @@
+T0   :   I0  I1  I2  
+T1   :   I0  I1  I2  I3  I4  I5  I6  I7  I8  
+T2   :   I0  
+T3   :   I0  I1  I2  I3  I4  I5  
+T4   :   I0  I1  I2  I3  I4  
+T5   :   I0  I1  I2  I3  I4  
+T6   :   I0  I1  I2  I3  I4  I5  I6  

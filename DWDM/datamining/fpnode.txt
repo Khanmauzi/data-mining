@@ -1,0 +1,43 @@
+fpnode* create(fpnode *t,vector<int>::iterator it,vector<int>v){
+	if(it==v.end())
+	return NULL;
+	if(t==NULL){								//child is null , create child and insert the element
+		t=new(fpnode);
+		t->node.insert(pair<int,int>(*it,1));
+		fpnode *t1;
+		it++;
+		t1=new(fpnode);
+		t->child.push_back(create(t1,it++,v));
+		return t;
+	}
+	else if(t!=NULL){
+		if(t->node.find(0)!=t->node.end()){							//root element , do not insert go to child
+			vector<fpnode *>v1=t->child;
+			if(v1.empty()){											//no child to root element
+				fpnode *t1;
+				t1=NULL;
+				v1.push_back(create(t1,it,v));
+				t->child=v1;
+				return t;
+			}
+			else{	
+				fpnode *t1;												//child is present to the root element
+				vector<fpnode*>::iterator it1;
+				for(it1=t->child.begin();it1!=t->child.end();it1++){
+					t1=*it1;
+					if(t1->node.find(*it)!=t->node.end())
+					break;
+				}
+				t=t1;
+				t=create(t,it,v);
+			}
+		}
+		else{
+			t->node[*it]++;
+			it++;
+			//create(t,it,v);
+			
+		}
+	}
+	return t;
+}
